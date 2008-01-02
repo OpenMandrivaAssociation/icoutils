@@ -9,6 +9,7 @@ Release: %{release}
 Source0: http://savannah.nongnu.org/download/icoutils/%{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphics
+BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://www.nongnu.org/icoutils/
 Requires: perl
 BuildRequires: libpng-devel
