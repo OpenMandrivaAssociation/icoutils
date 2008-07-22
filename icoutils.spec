@@ -1,6 +1,6 @@
 %define name icoutils
 %define version 0.26.0
-%define release %mkrel 2
+%define release %mkrel 4
 
 Summary: Extract and convert bitmaps from Windows icon and cursor files
 Name: %{name}
