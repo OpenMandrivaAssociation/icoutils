@@ -7,7 +7,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://savannah.nongnu.org/download/icoutils/%{name}-%{version}.tar.bz2
-License: GPL
+License: GPLv3+
 Group: Graphics
 BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://www.nongnu.org/icoutils/
