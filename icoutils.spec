@@ -1,5 +1,5 @@
 %define name icoutils
-%define version 0.28.0
+%define version 0.29.0
 %define release %mkrel 1
 
 Summary: Extract and convert bitmaps from Windows icon and cursor files
@@ -13,7 +13,6 @@ BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://www.nongnu.org/icoutils/
 Requires: perl
 BuildRequires: libpng-devel
-BuildRequires: autoconf2.5
 
 %description
 The icoutils are a set of program for extracting and converting
@@ -30,16 +29,17 @@ files are referred to as resources.)
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 cp extresso/extresso extresso/genresscript %buildroot/%_bindir
 cp extresso/extresso.1 extresso/genresscript.1 %buildroot/%_mandir/man1
- 
+
+%find_lang %{name} 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 %doc README AUTHORS ChangeLog NEWS TODO
 %_bindir/*
