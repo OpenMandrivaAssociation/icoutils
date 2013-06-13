@@ -1,18 +1,13 @@
-%define name icoutils
-%define version 0.29.1
-%define release %mkrel 3
-
-Summary: Extract and convert bitmaps from Windows icon and cursor files
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://savannah.nongnu.org/download/icoutils/%{name}-%{version}.tar.bz2
-License: GPLv3+
-Group: Graphics
-BuildRoot: %{_tmppath}/%{name}-buildroot
-URL: http://www.nongnu.org/icoutils/
-Requires: perl
-BuildRequires: libpng-devel
+Summary:	Extract and convert bitmaps from Windows icon and cursor files
+Name:		icoutils
+Version:	0.31.0
+Release:	1
+Source0:	http://savannah.nongnu.org/download/icoutils/%{name}-%{version}.tar.bz2
+License:	GPLv3+
+Group:		Graphics
+URL:		http://www.nongnu.org/icoutils/
+Requires:	perl
+BuildRequires:	pkgconfig(libpng)
 
 %description
 The icoutils are a set of program for extracting and converting
@@ -29,15 +24,11 @@ files are referred to as resources.)
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 cp extresso/extresso extresso/genresscript %buildroot/%_bindir
 cp extresso/extresso.1 extresso/genresscript.1 %buildroot/%_mandir/man1
 
-%find_lang %{name} 
-
-%clean
-rm -rf %{buildroot}
+%find_lang %{name}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
