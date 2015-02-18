@@ -1,13 +1,13 @@
 Summary:	Extract and convert bitmaps from Windows icon and cursor files
 Name:		icoutils
 Version:	0.31.0
-Release:	2
+Release:	3
 Source0:	http://savannah.nongnu.org/download/icoutils/%{name}-%{version}.tar.bz2
 License:	GPLv3+
 Group:		Graphics
 URL:		http://www.nongnu.org/icoutils/
-Requires:	perl
 BuildRequires:	pkgconfig(libpng)
+BuildRequires:	perl(Carp)
 
 %description
 The icoutils are a set of program for extracting and converting
@@ -20,60 +20,17 @@ files are referred to as resources.)
 %setup -q
 
 %build
-%configure2_5x
+%configure
 %make
 
 %install
 %makeinstall_std
-cp extresso/extresso extresso/genresscript %buildroot/%_bindir
-cp extresso/extresso.1 extresso/genresscript.1 %buildroot/%_mandir/man1
+install -m755 extresso/extresso extresso/genresscript %{buildroot}%{_bindir}
+install -m644 extresso/extresso.1 extresso/genresscript.1 %{buildroot}%{_mandir}/man1
 
 %find_lang %{name}
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README AUTHORS ChangeLog NEWS TODO
-%_bindir/*
-%_mandir/man1/*
-
-
-%changelog
-* Sat Oct 01 2011 Tomasz Pawel Gajc <tpg@mandriva.org> 0.29.1-3mdv2012.0
-+ Revision: 702187
-- rebuild for new libpng15
-
-* Mon Jul 11 2011 Götz Waschk <waschk@mandriva.org> 0.29.1-2
-+ Revision: 689502
-- rebuild
-
-* Fri Jul 09 2010 Ahmad Samir <ahmadsamir@mandriva.org> 0.29.1-1mdv2011.0
-+ Revision: 549895
-- new version 0.29.1
-
-* Mon Feb 22 2010 Emmanuel Andry <eandry@mandriva.org> 0.29.0-1mdv2010.1
-+ Revision: 509788
-- New version 0.29.0
-
-  + Frederik Himpe <fhimpe@mandriva.org>
-    - Fix license
-
-* Mon Aug 17 2009 Frederik Himpe <fhimpe@mandriva.org> 0.28.0-1mdv2010.0
-+ Revision: 417430
-- update to new version 0.28.0
-
-* Wed Jul 01 2009 Götz Waschk <waschk@mandriva.org> 0.27.0-1mdv2010.0
-+ Revision: 391167
-- update to new version 0.27.0
-
-* Tue Jul 22 2008 Thierry Vignaud <tv@mandriva.org> 0.26.0-4mdv2009.0
-+ Revision: 240836
-- rebuild
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <blino@mandriva.org>
-    - restore BuildRoot
-
-* Wed Jul 25 2007 Götz Waschk <waschk@mandriva.org> 0.26.0-2mdv2008.0
-+ Revision: 55233
-- Import icoutils
-
+%{_bindir}/*
+%{_mandir}/man1/*
