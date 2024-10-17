@@ -5,7 +5,7 @@ Release:	3
 Source0:	http://savannah.nongnu.org/download/icoutils/%{name}-%{version}.tar.bz2
 License:	GPLv3+
 Group:		Graphics
-URL:		http://www.nongnu.org/icoutils/
+URL:		https://www.nongnu.org/icoutils/
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	perl(Carp)
 
